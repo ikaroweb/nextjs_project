@@ -5,6 +5,7 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import { loadGLTFModel } from "../libs/models";
 import { animate } from "framer-motion";
 
+
 function easeOutCirc(x){
     return Math.sqrt(1 - Math.pow(x -1 , 4))
 }
@@ -14,7 +15,7 @@ const VoxelDog = () => {
     const [loading, setLoading] = useState(true)
     const [renderer, setRenderer] = useState()
     const [camera, setCamera] = useState()
-    const [target] = useState( new THREE.Vector3(-0.5, 1.2, 0))
+    const [target] = useState( new THREE.Vector3(0, 0, 0))
     const [initialCameraPosition] = useState(
         new THREE.Vector3(
             20 * Math.sin(0.2 * Math.PI),
@@ -66,13 +67,14 @@ const VoxelDog = () => {
             camera.lookAt(target)
             setCamera(camera)
             
+            
             const ambientLight = new THREE.AmbientLight(0xcccccc,1)
             scene.add(ambientLight)
                 
             const controls = new OrbitControls (camera, renderer.domElement)
             controls.autoRotate = true
             controls.target = target
-            setControls(controls)
+            setControls(controls)            
 
             loadGLTFModel(scene, '/dog.glb',{
                 receiveShadow: false,
@@ -117,6 +119,7 @@ const VoxelDog = () => {
         }
     }, [])
 
+    
     useEffect(() => {
         window.addEventListener('resize', handleWindowResize, false)
         return () => {
@@ -124,7 +127,7 @@ const VoxelDog = () => {
         }
     }, [renderer, handleWindowResize])
 
-
+    
     return <Box ref={refContainer} className="voxel-dog" m="auto" 
     mt={['-20px','-60px', '-120px']}
     mb={['-40px', '-140px', '-200px']}

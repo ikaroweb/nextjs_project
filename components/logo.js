@@ -17,7 +17,7 @@ padding: 10px;
 }
 `
 const Logo = () => {
-    const footPrintImg = `/images/footprint${useColorModeValue('', '-dark')}.png`
+    const footPrintImg = `/images/barra_logo${useColorModeValue('', '-dark')}.png`
     return (
         <Link href="/">
             <a>

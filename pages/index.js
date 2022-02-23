@@ -10,13 +10,14 @@ import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoLogoDiscord} from 'reac
 import thumbYouTube from '../public/images/links/youtube.png'
 import thumbInkdrop from '../public/images/works/inkdrop_eyecatch.png'
 const Page = () => {
+    const logoImg = `/images/logo${useColorModeValue('', '-dark')}.png`
     return(
         <Layout>
         <Container>
             <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500','whiteAlpha.200')} mb={6} p={3} align="center">
                 Benvenuto su InTouchDesign
             </Box>
-
+            
             <Box display={{ md: 'flex' }}>
                 <Box flexGrow={1}>
                     <Heading as="h2" variant="page-title">
@@ -25,12 +26,13 @@ const Page = () => {
                     <p>Web Agency - Realizzazione Siti Internet / E-Commerce / Applicazioni Mobile</p>
                 </Box>
                 <Box flexShrink={0} mt={{ base:4,  md:0}} ml={{ md:6 }} align="center">
-                    <Image borderColor="whiteAlpha.800" 
+                    <Image //borderColor="whiteAlpha.800" 
                     borderWidth={2} 
-                    borderStyle="solid" 
+                   // borderStyle="solid" 
                     maxWidth="100px" 
                     display="inline-block" 
-                    borderRadius="full" src="/images/takuya.jpg"
+                    //borderRadius="full" 
+                    src={logoImg}
                     alt="Profile Image" />
                 </Box>
             </Box>
